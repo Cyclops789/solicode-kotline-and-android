@@ -35,5 +35,23 @@ fun main() {
 
     println("$firstNumber + $secondNumber = $result")
 
+    fun add(firstNum: Int, secondNum: Int): Int {
+        return firstNum + secondNum;
+    }
+
+    fun subtract(firstNum: Int, secondNum: Int): Int {
+        return firstNum - secondNum;
+    }
+
+    val firstNumber2 = 10
+    val secondNumber2 = 5
+    val thirdNumber2 = 8
+
+    val result2 = add(firstNumber2, secondNumber2)
+    val anotherResult2 = add(firstNumber2, thirdNumber2)
+    val suntractresult = subtract(firstNumber2, thirdNumber2)
+    println("$firstNumber2 + $secondNumber2 = $result2")
+    println("$firstNumber2 + $thirdNumber2 = $anotherResult2")
+    println("$firstNumber2 - $thirdNumber2 = $suntractresult")
 
 }
