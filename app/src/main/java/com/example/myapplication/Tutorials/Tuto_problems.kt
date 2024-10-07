@@ -79,5 +79,27 @@ fun main() {
     println(displayAlertMessage(thirdUserOperatingSystem, thirdUserEmailId))
     println()
 
+    // Pedometer
+    fun stepsToCalories(steps: Int): Double {
+        val caloriesPerStep = 0.04
+        val totalCaloriesBurned = steps * caloriesPerStep
+        return totalCaloriesBurned
+    }
+
+    val steps = 4000
+    val caloriesBurned = stepsToCalories(steps);
+    println("Walking $steps steps burns $caloriesBurned calories")
+
+    // Compare two numbers
+    fun comparePhoneSpendTime(timeSpentToday: Int, timeSpentYesterday: Int): Boolean {
+        return timeSpentToday > timeSpentYesterday;
+    }
+    val isUsedPhoneTodayMoreThanYesterday = comparePhoneSpendTime(300, 250)
+
+    if(isUsedPhoneTodayMoreThanYesterday) {
+        println("You used the phone today more than yesterday")
+    } else {
+        println("You used the phone today less than yesterday")
+    }
 
 }
