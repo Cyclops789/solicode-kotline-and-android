@@ -102,4 +102,16 @@ fun main() {
         println("You used the phone today less than yesterday")
     }
 
+    // Move duplicate code into a function
+    fun displayWeather(city: String, lowTemperature: Int, highTemperature: Int, chainOfRain: Int) {
+        println("City: $city")
+        println("Low temperature: $lowTemperature, High temperature: $highTemperature")
+        println("Chance of rain: $chainOfRain%")
+        println()
+    }
+
+    displayWeather("Ankara", 27, 31, 82)
+    displayWeather("Tokyo", 32, 36, 10)
+    displayWeather("Cape Town", 59, 64, 2)
+    displayWeather("Guatemala City", 50, 55, 7)
 }
