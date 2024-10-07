@@ -114,4 +114,7 @@ fun main() {
     displayWeather("Tokyo", 32, 36, 10)
     displayWeather("Cape Town", 59, 64, 2)
     displayWeather("Guatemala City", 50, 55, 7)
+
+
+
 }
