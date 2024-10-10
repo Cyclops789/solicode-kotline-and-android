@@ -47,7 +47,6 @@ class ImagesActivity : ComponentActivity() {
 @Composable
 fun ImageContainer(name: String, modifier: Modifier = Modifier, from: String) {
     val image = painterResource(R.drawable.androidparty)
-
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = image,
