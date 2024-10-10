@@ -7,14 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.AbsoluteAlignment
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,11 +28,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Surface (
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background,
+                ) {
                     HappyBirthday(
                         name = "Android",
-                        modifier = Modifier.padding(innerPadding),
-                        color = Color.Green
+                        modifier = Modifier.padding(8.dp),
+                        from = "Me"
                     )
                 }
             }
@@ -42,23 +44,23 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun HappyBirthday(name: String, modifier: Modifier = Modifier, color: Color) {
-    Box (
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+fun HappyBirthday(name: String, modifier: Modifier = Modifier, from: String) {
+    Column (
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
             text = "Happy birthday $name!",
-            modifier = modifier.padding(20.dp),
-            color = color,
-            fontSize = 30.sp
+            modifier = Modifier.padding(20.dp).align(alignment = Alignment.End),
+            color = Color.Black,
+            fontSize = 90.sp,
+            lineHeight = 90.sp,
         )
-
         Text(
-            text = "Happy birthday ss $name!",
-            modifier = modifier.padding(20.dp),
-            color = color,
-            fontSize = 30.sp
+            text = "From $from",
+            modifier = Modifier.padding(20.dp),
+            color = Color.Blue,
+            fontSize = 25.sp,
         )
     }
 }
@@ -67,6 +69,6 @@ fun HappyBirthday(name: String, modifier: Modifier = Modifier, color: Color) {
 @Composable
 fun HappyBirthdayPreview() {
     ApplicationTheme {
-        HappyBirthday(name = "Hamza", color = Color.Green)
+        HappyBirthday(name = "Hamza", from = "Me")
     }
 }
