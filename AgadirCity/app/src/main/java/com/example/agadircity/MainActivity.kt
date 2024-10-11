@@ -62,7 +62,8 @@ fun App(name: String, description: String) {
             painter = backgroundCaption,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize(),
+            alpha = 0.5F
         )
 
         Column (
@@ -79,7 +80,7 @@ fun App(name: String, description: String) {
                     .size(width = 300.dp, height = 300.dp)
                     .border(
                         width = 4.dp,
-                        color = Color.White,
+                        color = Color.Black,
                         shape = RoundedCornerShape(16.dp)
                     )
                 ,
@@ -90,25 +91,16 @@ fun App(name: String, description: String) {
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
                 textDecoration = TextDecoration.Underline,
-                color = Color.White,
+                color = Color.Black,
             )
             Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .padding(20.dp)
-                    .clip(RoundedCornerShape(16.dp))
-                    .border(
-                        width = 4.dp,
-                        color = Color.White,
-                        shape = RoundedCornerShape(16.dp)
-                    )
-                    .background(Color.Black)
             ) {
                 Text(
                     text = description,
                     modifier = Modifier.padding(20.dp),
-                    color = Color.White,
+                    color = Color.Black,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,
                 )
