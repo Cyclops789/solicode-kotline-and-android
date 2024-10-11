@@ -10,6 +10,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -45,7 +46,9 @@ class MainActivity : ComponentActivity() {
             AgadirCityTheme {
                 App(
                     name = "Agadir Oufella",
-                    description = "Agadir Oufella is a historic hilltop fortress located in Agadir, Morocco. It was built in the 16th century and offers panoramic views of the city and coastline. The fortress was partially destroyed in the 1960 earthquake, but its ruins remain a popular tourist attraction for its historical significance and scenic vistas."
+                    description = "Agadir Oufella is a historic hilltop fortress located in Agadir, Morocco. It was built in the 16th century and offers panoramic views of the city and coastline. The fortress was partially destroyed in the 1960 earthquake, but its ruins remain a popular tourist attraction for its historical significance and scenic vistas.",
+                    phone = "05282-80808",
+                    location = "Oufella, Agadir",
                 )
             }
         }
@@ -53,7 +56,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun App(name: String, description: String) {
+fun App(name: String, description: String, phone: String, location: String) {
     val agadirOufellaImage = painterResource(R.drawable.agadir)
     val backgroundCaption  = painterResource(R.drawable.marina_sunset)
 
@@ -63,7 +66,7 @@ fun App(name: String, description: String) {
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize(),
-            alpha = 0.5F
+            alpha = 0.6F
         )
 
         Column (
@@ -76,7 +79,6 @@ fun App(name: String, description: String) {
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .clip(RoundedCornerShape(16.dp))
                     .size(width = 300.dp, height = 300.dp)
                     .border(
                         width = 4.dp,
@@ -105,6 +107,41 @@ fun App(name: String, description: String) {
                     fontWeight = FontWeight.SemiBold,
                 )
             }
+
+            Column {
+                val phoneIcon = painterResource(R.drawable.phone_24)
+                val locationIcon = painterResource(R.drawable.location_on_24)
+
+                Box {
+                    Image(
+                        painter = phoneIcon,
+                        contentDescription = null
+                    )
+
+                    Text(
+                        text = phone,
+                        modifier = Modifier.padding(horizontal = 25.dp),
+                        color = Color.Black,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                }
+
+                Box {
+                    Image(
+                        painter = locationIcon,
+                        contentDescription = null
+                    )
+
+                    Text(
+                        text = location,
+                        modifier = Modifier.padding(horizontal = 25.dp),
+                        color = Color.Black,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                }
+            }
         }
     }
 }
@@ -115,7 +152,9 @@ fun GreetingPreview() {
     AgadirCityTheme {
         App(
             name = "Agadir Oufella",
-            description = "Agadir Oufella is a historic hilltop fortress located in Agadir, Morocco. It was built in the 16th century and offers panoramic views of the city and coastline. The fortress was partially destroyed in the 1960 earthquake, but its ruins remain a popular tourist attraction for its historical significance and scenic vistas."
+            description = "Agadir Oufella is a historic hilltop fortress located in Agadir, Morocco. It was built in the 16th century and offers panoramic views of the city and coastline. The fortress was partially destroyed in the 1960 earthquake, but its ruins remain a popular tourist attraction for its historical significance and scenic vistas.",
+            phone = "05282-80808",
+            location = "Oufella, Agadir",
         )
     }
 }
